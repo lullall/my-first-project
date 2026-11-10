@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>极简翻译</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <p class="back-home"><a href="../../index.html">← 返回 lullall 主页</a></p>
+  <header class="topbar">
+    <h1 class="title">极简翻译</h1>
+  </header>
+
+  <div class="proxy-bar">
+    <label class="proxy-bar__label" for="proxyInput">CORS 代理</label>
+    <input
+      id="proxyInput"
+      class="proxy-bar__input"
+      type="text"
+      placeholder="https://cors-anywhere.herokuapp.com/"
+      value="https://cors-anywhere.herokuapp.com/"
+    />
+  </div>
+
+  <main class="container">
+    <div class="panel">
+      <!-- 左栏：输入 -->
+      <section class="card card--input">
+        <div class="card__head">
+          <label class="lang-select">
+            <span class="lang-select__label">源语言</span>
+            <select id="sourceLang">
+              <option value="auto">自动检测</option>
+              <option value="zh">中文</option>
+              <option value="en">英语</option>
+              <option value="ja">日语</option>
+            </select>
+          </label>
+        </div>
+        <textarea
+          id="inputText"
+          class="card__body"
+          placeholder="请输入要翻译的内容…"
+        ></textarea>
+        <div class="card__foot">
+          <span id="charCount" class="char-count">0 字</span>
+          <div class="actions">
+            <button id="translateBtn" class="btn-translate">翻译</button>
+            <button id="pauseBtn" class="btn-action btn-pause" hidden>暂停</button>
+            <button id="abortBtn" class="btn-action btn-abort" hidden>强制中止</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 右栏：结果 -->
+      <section class="card card--output">
+        <div class="card__head">
+          <label class="lang-select">
+            <span class="lang-select__label">目标语言</span>
+            <select id="targetLang">
+              <option value="en">英语</option>
+              <option value="zh">中文</option>
+              <option value="ja">日语</option>
+            </select>
+          </label>
+        </div>
+        <div id="engineHint" class="engine-hint"></div>
+        <div id="outputText" class="card__body card__body--result">
+          翻译结果将显示在这里…
+        </div>
+        <div class="card__foot">
+          <span class="char-count char-count--muted"></span>
+          <span class="char-count char-count--muted"></span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
